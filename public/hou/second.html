@@ -33,12 +33,12 @@
                     <span>分类管理</span>
                 </a>
                 <div class="child" style="display: block">
-                    <a href="first.html" >一级分类</a>
-                    <a href="second.html" class="active">二级分类</a>
+                    <a href="first.html">一级分类</a>
+                    <a class="active" href="second.html">二级分类</a>
                 </div>
             </li>
             <li>
-                <a href="product.html" >
+                <a href="product.html">
                     <span class="glyphicon glyphicon-tags"></span>
                     <span>商品管理</span>
                 </a>
@@ -62,8 +62,27 @@
             <li><a href="#" >分类管理</a></li>
             <li class="active">二级分类</li>
         </ol>
-        <div class="pic_left pull-left"></div>
-        <div class="pic_right pull-right"></div>
+        <div class="lt_content">
+            <button class="btn btn-default mb_20 btn_add">添加分类</button>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <td width="10%">序号</td>
+                    <td width="30%">一级分类名称</td>
+                    <td width="30%">二级分类名称</td>
+                    <td width="30%">二级分类LOGO</td>
+
+                </tr>
+                </thead>
+                <tbody>
+                <!--挖个坑-->
+
+                </tbody>
+            </table>
+            <div class="text-right">
+                <ul id="paginator"></ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -87,13 +106,106 @@
         </div>
     </div>
 </div>
+<!--添加模态框-->
+<div class="modal fade" tabindex="-1" id="addModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">添加分类</h4>
+            </div>
+            <form id="form">
+                <div class="modal-body">
+
+                    <!--选择一级分类-->
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                <span class="dropdown-text">请选择一级分类</span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!--挖个坑-->
+                            </ul>
+                            <!--隐藏域是为了把用户选择的一级分类所在的id传输到服务端-->
+                            <input type="hidden" name="categoryId" id="categoryId">
+                        </div>
+                    </div>
+
+                    <!--输入二级分类名称-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="请输入二级分类的名称" name="brandName">
+                    </div>
+
+                    <!--上传图片-->
+                    <div class="form-group">
+                        <div class="fileupload_box">
+                            <button class="btn btn-default">上传图片</button>
+                            <!--
+                              id: 为了方便获取
+                              type:file: 才能上传文件
+                              name: 后端才能通过name属性获取文件
+                              data-url: 后端的图片上传的地址
+                              multiple:多文件上传
+                             -->
+                            <input id="fileupload" type="file" class="btn btn-default" data-url="/category/addSecondCategoryPic" name="pic1">
+                        </div>
+                    </div>
+
+                    <!--显示的图片-->
+                    <div class="form-group img_box">
+                        <img src="images/none.png" width="100" height="100" alt="">
+                        <!--这个隐藏域是为了给后台传递brandLogo这个值-->
+                        <input type="hidden" name="brandLogo" id="brandLogo">
+                        <input type="hidden" name="hot" value="1">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <!--需要把type改成submit才能把表单进行提交-->
+                    <!--autofocus: 自动获取焦点 autocomplete:自动补全 multiple: form-->
+                    <!-- form="form" 让按钮跟上面关联上了，效果就是相当于写在form内部。-->
+                    <button type="submit" class="btn btn-primary">添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 <script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/second.js"></script>
 
+
+
+<!--模板-->
+<script type="text/html" id="tpl">
+    {{ each rows v i }}
+    <tr>
+        <td>{{(page-1)*size+i+1}}</td>
+        <td>{{ v.categoryName }}</td>
+        <td>{{ v.brandName }}</td>
+        <td><img width="50" height="50" src="{{ v.brandLogo }}" alt=""></td>
+    </tr>
+    {{ /each }}
+</script>
+<script type='text/html' id="add-tpl" >
+
+    {{each rows v i}}
+    <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+    {{/each}}
+
+</script>
 
 
 </body>
