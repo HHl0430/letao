@@ -104,3 +104,10 @@ html,body{
     width: 45%;
     height: 400px;
 }
+table {
+    text-align: center;
+
+}
+.table > tbody > tr > td {
+    vertical-align:middle;
+}
