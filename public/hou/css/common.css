@@ -17,6 +17,9 @@ html,body{
     margin-top: 150px;
 
 }
+.mb_20{
+    margin-bottom: 20px;
+}
 .panel-heading h4 {
     text-align: center;
     padding: 10px 15px;
@@ -71,9 +74,11 @@ html,body{
     color: #ccc;
 }
 .lt_aside .nav a.active {
-    border-left-color: #069;
+
     background-color: #1d1f21;
     color: #fff;
+    border-left: 3px solid #fff;
+    border-left-color: #069;
 }
 
 .lt_aside .child a {
