@@ -1,0 +1,49 @@
+.lt_left{
+    width: 90px;
+    height: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+
+}
+.lt_left a {
+    display: block;
+    width: 90px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #c7c7cc;
+    -moz-border-radius-topright: 5px;
+    border-right: 1px solid #2ac845;
+    border-bottom:1px solid #2ac845 ;
+
+}
+.lt_left .now a{
+    background-color: #fff;
+    border-right: none;
+}
+.lt_right {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.lt_right li {
+    float: left;
+    width: 33.33%;
+
+}
+.lt_right li img {
+    padding-top: 10px;
+    display: block;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
+}
+.lt_right li p {
+    text-align: center;
+}
+.kong {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 20px;
+}
