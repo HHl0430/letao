@@ -1,0 +1,41 @@
+
+.lt_proName{
+
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.lt_price {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.lt_price .price{
+    color: red;
+}
+.lt_price .oldPrice {
+    font-size: 12px;
+    color: #666;
+    text-decoration: line-through;
+}
+.lt_size {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.lt_size span {
+    padding: 5px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    line-height: 30px;
+}
+.lt_num {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.lt_num span {
+    font-size: 12px;
+    color: #666;
+}
+.lt_desc {
+    padding: 10px;
+    border-top:  1px solid #ccc;
+}
